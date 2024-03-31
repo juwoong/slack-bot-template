@@ -1,0 +1,12 @@
+version: "3"
+services:
+  cat:
+    image: your-own-image:latest
+    restart: always
+    container_name: slack-image
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - "${HOME}/.bots/cat.yaml:/etc/cat/config.yaml"
+    environment:
+      CONFIG_PATH: /etc/cat/config.yaml
